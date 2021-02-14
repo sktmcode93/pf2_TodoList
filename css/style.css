@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+:root {
+    --hover-color : rgb(255, 159, 159);
+    --box-transition : cubic-bezier(0, 0, 0, 0.99);
+}
+@media (max-width : 3840px){
+/* 레이아웃 */
+#todolist {
+    background-image: url('../img/bg-td.jpg');
+    background-size: cover;
+    background-position: left bottom;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* nav박스 */
+.tl-nav-box {
+    position: absolute;
+    left: 9vw;
+    top: 8vh;
+    transition: width 0.8s var(--box-transition);
+    border: 2px solid rgb(73, 73, 73);
+    border-radius: 50px;
+    overflow: hidden;
+    width: 0;
+    height: 50px;
+    background-color: rgba(255,255,255,0.5);
+}
+.tl-nav-load {
+    width: 300px;
+}
+/* nav박스 | 내부 요소*/
+.tl-nav-description {
+    display: block;
+    padding: 10px 0 0 30px;
+    width: 210px;
+    font-size: 0.8rem;
+    font-family: 'Nanum Myeongjo', serif;
+}
+.tl-nav-box input {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+}
+.tl-nav-box input:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-nav-toggle {
+    top: 15px;
+    left: 10px;
+    font-size: 1rem;
+}
+.tl-nav-left {
+    top: 12px;
+    right: 30px;
+    font-size: 1.2rem;
+}
+.tl-nav-right {
+    top: 12px;
+    right: 10px;
+    font-size: 1.2rem;
+}
+
+/* btn 박스 */
+.tl-btn-box {
+    position: absolute;
+    left: 9vw;
+    top: 14vh;
+    border: 2px solid black;
+    display: flex;
+    font-display: row;
+    align-items: center;
+    padding: 2px;
+    border-radius: 50px;
+    transition: all 0.8s var(--box-transition);
+}
+.tl-btn-box-active {
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+}
+.tl-btn-add {
+    font-size: 1.2rem;
+    padding: 2px;
+    background-color: transparent;
+    border: none;
+}
+.tl-btn-add:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-btn-new {
+    display: flex;
+    font-display: row;
+    align-items: center;
+    width: 0;
+    height: 30px;
+    transition: width 0.8s var(--box-transition);
+    overflow: hidden;
+}
+.tl-btn-new-active {
+    margin-left: 5px;
+    width: 250px;
+}
+.tl-btn-new input {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+}
+.tl-btn-text {
+    font-size: 1.1rem;
+    width: 85px;
+    transition: border-bottom 0.3s var(--box-transition);
+}
+.tl-btn-text:focus {
+    border-bottom: 2px solid var(--hover-color);
+}
+.tl-btn-control {
+    margin: 0 5px;
+    transition: border-bottom 0.3s var(--box-transition);
+}
+.tl-btn-control:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+    border-bottom: 1.5px solid var(--hover-color);
+}
+
+/* list-container */
+.tl-list-container{
+    position: absolute;
+    left: 30vw;
+    top: 15vh;
+    width: 60vw;
+    height: 60vh;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(255, 108, 108, 0.11), rgba(253, 225, 225, 0.37) 99.71%);
+    border-radius: 5px;
+}
+.tl-method-box {
+    position: absolute;
+    right: 0;
+    top: -25px;
+}
+.tl-method-box span {
+    margin: 0 5px;
+}
+.tl-method-box span:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-method-select {
+    color: var(--hover-color);
+}
+/* list-container | header */
+.tl-list-header{
+    font-size: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px dashed black;
+}
+.tl-list-header input, .tl-list-header span {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.tl-header-check{
+    width: 5%;
+}
+.tl-header-category {
+    width: 30%;
+    font-family: 'Do Hyeon', sans-serif;
+}
+.tl-header-category:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-header-todo {
+    width: 50%;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+}
+.tl-header-todo:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-header-done {
+    width: 15%;
+}
+/* list-container | data */
+.tl-list-main-box {
+    display: block;
+    width: 100%;
+}
+.tl-list-main-data input {
+    box-sizing: border-box;
+}
+.tl-list-main-data {
+    margin-top: 5px;
+    display: block;
+    padding-bottom: 10px;
+}
+.tl-list-main-data span, .tl-list-main-data input {
+    display: inline-block;
+    text-align: center;
+}
+.tl-list-main-check {
+    width: 5%;
+}
+.tl-list-main-category {
+    width: 30%;
+    font-size: 1.2rem;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.tl-list-main-todo{
+    width: 50%;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+}
+.tl-list-main-done {
+    width: 15%;
+}
+.tl-list-main-done:hover{
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-list-main-id {
+    display: none;
+}
+/* post Container */
+.tl-post-box{
+    display: none;
+    position: relative;
+}
+.tl-post-header {
+    position: absolute;
+    left: 0; 
+    top: -35px;
+}
+.tl-post-header span {
+    margin: 0 5px;
+}
+.tl-post-header span:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-post-header-category {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 1.1rem;
+}
+.tl-post-header-todo {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+}
+.tl-post-main-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tl-post-main-box input {
+    box-sizing: border-box;
+}
+.tl-post-main-id {
+    display: none;
+}
+.tl-post-main-data {
+    border-radius: 0 0 25px 0;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 252, 104, 0.856), rgba(199, 196, 49, 0.74) 99.71%);
+}
+.tl-post-main-data span {
+    display: inline-block;
+}
+.tl-post-main-category {
+    width: 120px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+.tl-post-main-done {
+    width: 20px;
+    margin: 0 10px;
+}
+.tl-post-main-done:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-post-main-delete{
+    width: 20px;
+}
+.tl-post-main-delete:hover{
+    cursor: pointer;
+    color: var(--hover-color);
+}
+.tl-post-main-todo {
+    margin-top: 10px;
+    width: 180px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.tl-done {
+    color: rgb(255, 58, 58)
+}
+.tl-while-edit {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50px;
+}
+}
+
+@media (max-width : 1920px){
+    .tl-nav-box {
+        top: 10vh;
+    }
+    .tl-btn-box {
+        top: 16vh;
+    }
+    .tl-list-container{
+        left: 40vw;
+        width: 50vw;
+    }
+}
+@media (max-width : 1280px){
+    .tl-nav-box, .tl-btn-box {
+        left: 15vw;
+    }
+    .tl-list-container{
+        left: 45vw;
+        width: 50vw;
+    }
+}
+@media (max-width : 960px){
+    .tl-nav-box, .tl-btn-box {
+        left: 20vw;
+    }
+    .tl-list-container{
+        left: 20vw;
+        width: 70vw;
+        top: 25vh;
+    }
+}
+@media (max-width : 720px){
+    .tl-nav-box, .tl-btn-box {
+        left: 25vw;
+    }
+}
+@media (max-width : 480px){
+    .tl-nav-box, .tl-btn-box {
+        left: 40vw;
+    }
+    .tl-nav-load, .tl-btn-new-active {
+        width: 200px;
+    }
+    .tl-nav-description{
+        width: 150px;
+        font-size: 0.6rem;
+    }
+    .tl-nav-left {
+        top: 25px;
+        right: 40px;
+        font-size: 1rem;
+    }
+    .tl-nav-right {
+        top: 25px;
+        right: 20px;
+        font-size: 1rem;
+    }
+    .tl-btn-text {
+        font-size: 0.9rem;
+        width: 65px;
+    }
+    
+}

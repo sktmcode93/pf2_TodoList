@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section id="PORTPOLIO2">
+        <main id="todolist">
+            <nav class="tl-nav-box">
+                <input type="button" value="X" class="tl-nav-toggle" onclick="tdnavClose()">
+                <span class="tl-nav-description">환영합니다. 아래 추가 버튼으로 할 일을 추가해보세요!</span>
+                <input type="button" value="<" class="tl-nav-left" onclick="tdnavChangePage(event)">
+                <input type="button" value=">" class="tl-nav-right" onclick="tdnavChangePage(event)">
+            </nav>
+            <div class="tl-btn-box">
+                <input type="button" value="+" class="tl-btn-add" onclick="tdAddBoxActive()">
+                <div class="tl-btn-new">
+                    <input type="text" placeholder="카테고리" class="tl-btn-category tl-btn-text" maxlength="20">
+                    <input type="text" placeholder="할 일" class="tl-btn-todo tl-btn-text" maxlength="20">
+                    <input type="button" value="추가" class="tl-btn-done tl-btn-control" onclick="tdAddClickHandler()">
+                    <input type="button" value="취소" class="tl-btn-cancel tl-btn-control" onclick="tdAddBoxBlur()">
+                </div>
+            </div>
+            <div class="tl-list-container">
+                <div class="tl-list-view-method">
+                    <div class="tl-method-box">
+                        <span class="tl-method-list tl-method-select" onclick="tdChangeMethod(event)" value="0">●리스트형</span>
+                        <span class="tl-method-post" onclick="tdChangeMethod(event)" >●앨범형</span>
+                        <span class="tl-method-deletion" onclick="tdDeleteHandler()">삭제</span>
+                    </div>
+                </div>
+                <div class="tl-list-box">
+                    <div class="tl-list-header">
+                        <input type="checkbox" class="tl-header-check" onchange="tdAllCheckHandler(event)">
+                        <span class="tl-header-category" onclick="tdSorting(event)">카테고리</span>
+                        <span class="tl-header-todo" onclick="tdSorting(event)">할 일</span>
+                        <span class="tl-header-done">완료</span>
+                    </div>
+                    <ul class="tl-list-main-box"></ul>
+                </div>
+                <div class="tl-post-box">
+                    <div class="tl-post-header">
+                        <input type="checkbox" class="tl-post-header-check" onchange="tdAllCheckHandler(event)">
+                        <span class="tl-post-header-category" onclick="tdSorting(event)">카테고리</span>
+                        <span class="tl-post-header-todo" onclick="tdSorting(event)">할 일</span>
+                    </div>
+                    <ul class="tl-post-main-box"></ul>
+                </div>
+            </div>
+        </main>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>
